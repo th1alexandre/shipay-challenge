@@ -1,0 +1,45 @@
+Example of YAML for API documentation.
+Use 'from flasgger import swag_from'
+and '@swag_from("your_file.yaml")'
+---
+summary: Summary
+description: Description
+tags:
+  - Tag
+consumes:
+  - application/json
+produces:
+  - application/json
+parameters:
+  - in: body
+    name: data
+    description: json object with input data
+    required: true
+    schema:
+      type: object
+      properties:
+        first_key:
+          type: string
+          example: some string
+        second_key:
+          type: int
+          example: 42
+responses:
+  200:
+    description: SUCCESS
+  400:
+    description: BAD REQUEST
+  401:
+    description: UNAUTHORIZED
+  403:
+    description: FORBIDDEN
+  404:
+    description: NOT FOUND
+  405:
+    description: METHOD NOT ALLOWED
+  409:
+    description: CONFLICT
+  412:
+    description: PRECONDITION FAILED
+  500:
+    description: INTERNAL SERVER ERROR
