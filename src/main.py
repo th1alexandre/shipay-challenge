@@ -2,8 +2,9 @@ from flask import Flask
 
 from config import FlaskConfig
 from library.exceptions import exception_handler
-from routes.blueprints import claims_bp, roles_bp, user_claims_bp, users_bp
+from routes.blueprints import claims_bp, roles_bp, user_claims_bp
 from routes.route import generic_bp
+from routes.users.route import users_bp
 from swagger import initialize_flasgger
 
 

@@ -1,0 +1,40 @@
+---
+summary: User
+description: Create a new user
+tags:
+  - User
+consumes:
+  - application/json
+produces:
+  - application/json
+parameters:
+  - in: body
+    name: data
+    description: json object with input data
+    required: true
+    schema:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Thiago Alexandre
+          required: true
+        email:
+          type: string
+          example: th1alexandre.dev@gmail.com
+          required: true
+        password:
+          type: string
+          example: 0123456789abcdef
+          required: false
+        role_id:
+          type: int
+          required: true
+          example: 1
+responses:
+  201:
+    description: CREATED
+  400:
+    description: BAD REQUEST
+  500:
+    description: INTERNAL SERVER ERROR
