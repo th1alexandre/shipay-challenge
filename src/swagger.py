@@ -1,5 +1,4 @@
 from flasgger import LazyJSONEncoder, LazyString, Swagger
-
 from flask import Flask, request
 
 
@@ -24,10 +23,10 @@ def initialize_flasgger(app: Flask):
 
     template = dict(
         info={
-            "title": LazyString(lambda: "Flask App - Swagger UI"),
-            "version": LazyString(lambda: "0.1.0"),
+            "title": LazyString(lambda: "Shipay Challenge - Swagger UI"),
+            "version": LazyString(lambda: "1.0.0"),
             "uiversion": LazyString(lambda: 3),
-            "description": LazyString(lambda: "Flask App - API Documentation"),
+            "description": LazyString(lambda: "Shipay Challenge - API Documentation"),
             "termsOfService": LazyString(lambda: "/there_is_no_tos"),
         },
         host=LazyString(lambda: request.host),

@@ -1,5 +1,5 @@
 ### Base stage, load environment variables
-FROM python:3.11-slim-bullseye as python-base
+FROM python:3.11-slim-bookworm as python-base
 
 # Python envs
 ENV PYTHONDONTWRITEBYTECODE=1 \
@@ -14,7 +14,7 @@ ENV PIP_NO_CACHE_DIR=off \
 
 # Poetry envs
 ENV POETRY_NO_INTERACTION=1 \
-    POETRY_VERSION=1.3.0 \
+    POETRY_VERSION=1.5.1 \
     POETRY_HOME=/opt/poetry \
     POETRY_VIRTUALENVS_IN_PROJECT=true
 
