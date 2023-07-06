@@ -1,0 +1,21 @@
+---
+summary: Role
+description: Get role description
+tags:
+  - API
+produces:
+  - application/json
+parameters:
+  - in: path
+    name: role_id
+    description: role id
+    required: true
+responses:
+  200:
+    description: SUCCESS
+  400:
+    description: BAD REQUEST
+  404:
+    description: NOT FOUND
+  500:
+    description: INTERNAL SERVER ERROR
