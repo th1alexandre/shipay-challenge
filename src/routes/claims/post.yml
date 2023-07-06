@@ -1,0 +1,32 @@
+---
+summary: Claim
+description: Create a new claim
+tags:
+  - Claim
+consumes:
+  - application/json
+produces:
+  - application/json
+parameters:
+  - in: body
+    name: data
+    description: json object with input data
+    required: true
+    schema:
+      type: object
+      properties:
+        description:
+          type: string
+          example: Review Code
+          required: true
+        active:
+          type: boolean
+          example: true
+          required: true
+responses:
+  201:
+    description: CREATED
+  400:
+    description: BAD REQUEST
+  500:
+    description: INTERNAL SERVER ERROR
