@@ -2,6 +2,7 @@ from flask import Flask
 
 from config import FlaskConfig
 from library.exceptions import exception_handler
+from routes.blueprints import claims_bp, roles_bp, user_claims_bp, users_bp
 from routes.route import generic_bp
 from swagger import initialize_flasgger
 
@@ -14,7 +15,14 @@ def create_app():
 
         app.config.from_object(FlaskConfig())
         app.register_error_handler(Exception, exception_handler)
+
+        # Blueprints
         app.register_blueprint(generic_bp, url_prefix="/api/v1")
+
+        app.register_blueprint(users_bp, url_prefix="/api/v2/user")
+        app.register_blueprint(roles_bp, url_prefix="/api/v2/role")
+        app.register_blueprint(claims_bp, url_prefix="/api/v2/claim")
+        app.register_blueprint(user_claims_bp, url_prefix="/api/v2/user-claim")
 
         return app
     except Exception as e:
