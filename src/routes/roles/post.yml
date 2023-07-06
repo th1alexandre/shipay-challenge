@@ -1,0 +1,28 @@
+---
+summary: Role
+description: Create a new role
+tags:
+  - Role
+consumes:
+  - application/json
+produces:
+  - application/json
+parameters:
+  - in: body
+    name: data
+    description: json object with input data
+    required: true
+    schema:
+      type: object
+      properties:
+        description:
+          type: string
+          example: Software Engineer
+          required: true
+responses:
+  201:
+    description: CREATED
+  400:
+    description: BAD REQUEST
+  500:
+    description: INTERNAL SERVER ERROR
