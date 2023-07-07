@@ -28,3 +28,8 @@ These steps are not required, but highly recommended
 - Run `pip install poetry` and `poetry install --only main`
 - After installing main dependencies, install dev dependencies
 - Run `poetry install --only dev` and `pre-commit install`
+
+### Run project
+- Run `docker compose build && docker compose up -d`
+- Go to http://localhost:5000/apidocs
+- To stop, run `docker compose down`
