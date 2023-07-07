@@ -1,0 +1,34 @@
+---
+summary: User Claim
+description: Add claim to user
+tags:
+  - UserClaim
+consumes:
+  - application/json
+produces:
+  - application/json
+parameters:
+  - in: body
+    name: data
+    description: json object with input data
+    required: true
+    schema:
+      type: object
+      properties:
+        user_id:
+          type: int
+          example: 1
+          required: true
+        claim_id:
+          type: int
+          example: 1
+          required: true
+responses:
+  200:
+    description: SUCCESS
+  400:
+    description: BAD REQUEST
+  404:
+    description: NOT FOUND
+  500:
+    description: INTERNAL SERVER ERROR
