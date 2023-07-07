@@ -1,0 +1,17 @@
+Linha 9. A configuração do banco de dados possui credenciais inseridas diretamente no código. Seria melhor transferir essas informações (user, password, host, port, db) para um arquivo externo ou variáveis de ambiente, assim evitando um possível vazamento das credenciais de acesso ao banco de dados para qualquer um que tenha acesso ao repositório/código
+
+Em alguns locais é utilizado uma ferramenta de logging e em outros é usado impressão no console `print()`, seria interessante padrozinar o código e usar melhor a ferramenta de logs para exibir mensagens no console
+
+Linha 32. Exceptions estão sendo capturadas, mas não estão sendo tratadas, caso elas ocorram podem causar problemas para o programa visto que estão sendo ignoradas
+
+Linha 15. Está criando uma aplicação Flask porém não foi identificado no código nenhuma rota cadastrada, talvez exista uma abordagem melhor para criar o script que não precise adicionar flask como dependencia, reduzindo a carga da máquina em que o script é executado
+
+Na linha 22 está sendo utilizado como input para a função um arquivo que está localizado dentro da pasta /tmp da qual pode ser excluída a qualquer momento o que causaria uma falha catastrófica do script, seria interessante utilizar outra pasta ou ao menos realizar um backup do arquivo para caso o mesmo seja excluído por acidente
+
+Muitos imports não estão sendo utilizados, é uma boa prática remover imports e variáveis que não estão sendo utilizados
+
+Não está sendo feito tratamento de exceções em nenhuma parte do código, a única parte onde existe um bloco try/catch está ignorando a exception
+
+Na linha 48 deveria haver uma cautela maior com a conexão sendo iniciada sem o bloco "with" pois pode levar a uma conexão não fechada em caso de erros durante a execução da query. Também seria mais adequado utilizar um ORM para realizar a consulta em vez de SQL puro para evitar SQL Injection
+
+Linha 60, está sendo feito um loop baseado em uma query SQL que pode vir a ser muito extensa (SELECT * FROM users;), caso haja muitos registros esse loop pode vir a consumir muitos recursos da máquina, caso esteja rodando em uma máquina na núvem isso pode causar sérios prejuízos para a empresa. Seria mais adequado adicionar uma clausula WHERE para filtrar melhor os resultados. Além disso utilizar "*" em um SELECT não é uma boa prática, o desenvolvedor deveria especificar exatamente o que ele precisa, além de que isso facilitaria o entendimento de outros desenvolvedores sobre o que será utilizado da tabela
